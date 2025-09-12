@@ -25,10 +25,10 @@ function App() {
 }
 
 function Steps({ step, setStep }) {
-  // const style = {
-  //   backgroundColor: "#7950f2",
-  //   color: "#fff",
-  // };
+  const style = {
+    backgroundColor: "#7950f2",
+    color: "#fff",
+  };
   const msgArrLen = messages.length;
 
   function handleNext() {
@@ -48,46 +48,19 @@ function Steps({ step, setStep }) {
         ))}
       </div>
 
-      <StepMsg step={step}>{messages[step - 1]}</StepMsg>
+      <p className="message">
+        Step {step}: {messages[step - 1]}
+      </p>
 
       <div className="buttons">
-        {/* <button style={style} onClick={handlePrevious}>
+        <button style={style} onClick={handlePrevious}>
           Previous
         </button>
         <button style={style} onClick={handleNext}>
           Next
-        </button> */}
-        <Button bgColor="#7950f2" txtColor="#fff" onClick={handlePrevious}>
-          {/* This is how to use the children prop */}
-          <span>👈</span> Previous
-        </Button>
-        <Button bgColor="#7950f2" txtColor="#fff" onClick={handleNext}>
-          {/* This is how to use the children prop */}
-          Next <span>👉</span>
-        </Button>
+        </button>
       </div>
     </div>
-  );
-}
-
-function StepMsg({ step, children }) {
-  return (
-    <div className="message">
-      <h3>Step {step}:</h3>
-      {children}
-    </div>
-  );
-}
-
-function Button({ bgColor, txtColor, onClick, children }) {
-  return (
-    <button
-      style={{ backgroundColor: bgColor, color: txtColor }}
-      onClick={onClick}
-    >
-      {/* This is how to use the children prop */}
-      {children}
-    </button>
   );
 }
 
